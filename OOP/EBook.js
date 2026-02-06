@@ -3,24 +3,19 @@ import Book from "./Book.js"
 class EBook extends Book{
      constructor(name, author, year, format){
         super (name, author, year)
-        this._format = format
+        this.format = format
     }
      printInfo(){
-                if (Object.keys(this.errors).length > 0) {
-            console.log("Please check your entered data:");
-            console.log(this.errors);
-            return;
-        }
+               
     console.log(`The book "${this.name}" written by ${this.author} in ${this.year} year. Available in ${this.format} format`);
     }
     
     set format(value){
-        if(typeof value !== "string"){
-            this.errors.format = "Please enter valid format"
-        }else{
-            this._format = value
-            delete this.errors.format
+         if (!value || typeof value !== "string"){
+            throw new Error("Please enter valid format")
         }
+        this._format = value
+        
     }
     get format(){
         return this._format

@@ -10,22 +10,19 @@ const ebook3 = new EBook("Tiny beautiful things", "Cheryl Strayed", 2022,".docx"
 //Task3
 const book4 = new Book ("", "J.K. Rowling", 2002)
 const book5 = new Book ("Order of the Phoenix","",2003)
-const book6 = new Book ("Half-Blood Prince","J.K. Rowling",-0)
+const book6 = new Book ("Half-Blood Prince","J.K. Rowling",1899)
 const ebook2 = new EBook("Deathly Hallows","J.K. Rowling", 2007, 1)
 //Task4 
-const allBooks = [
+const Books = [
   book1,
   book2,
   book3,
   ebook1,
-  ebook3,
-  book4,
-  book5,
-  book6,
-  ebook2,
+  ebook3
+
 ];
 
-const oldestBook = Book.returnOldestBook(allBooks);
+const oldestBook = Book.returnOldestBook(Books);
 
 if (oldestBook) {
   oldestBook.printInfo();

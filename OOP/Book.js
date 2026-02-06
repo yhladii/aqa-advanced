@@ -1,28 +1,20 @@
 class Book {
     constructor(name, author, year) {
-        this.errors = {}; 
         this.name = name;
         this.author = author;
         this.year = year;
     }
 
     printInfo() {
-        if (Object.keys(this.errors).length > 0) {
-            console.log("Please check your entered data:");
-            console.log(this.errors);
-            return;
-        }
 
         console.log(`The book "${this.name}" written by ${this.author} in ${this.year} year`);
     }
 
     set name(value) {
-        if (!value) {
-            this.errors.name = "Book name is required";
-        } else {
-            this._name = value;
-            delete this.errors.name;
+        if (!value || typeof value !== "string") {
+            throw new Error("Book name is required and must be a string");
         }
+        this._name = value;
     }
 
     get name() {
@@ -30,12 +22,10 @@ class Book {
     }
 
     set author(value) {
-        if (!value) {
-            this.errors.author = "Author is required";
-        } else {
-            this._author = value;
-            delete this.errors.author;
+        if (!value|| typeof value !== "string") {
+            throw new Error("Author is required and must be a string");
         }
+        this._author = value;
     }
 
     get author() {
@@ -43,12 +33,11 @@ class Book {
     }
 
     set year(value) {
-        if (value <= 0) {
-            this.errors.year = "Year must be a positive number";
-        } else {
-            this._year = value;
-            delete this.errors.year;
-        }
+        if (value <= 1990) {
+           throw new Error("Year must be >1990");
+        } 
+        this._year = value;
+        
     }
 
     get year() {
