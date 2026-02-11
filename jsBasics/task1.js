@@ -1,4 +1,4 @@
-let userName = "Yulia";
+let userName = 'Yulia';
 let userAge = 23;
 let isStudent = true;
 let userEmail = null;
