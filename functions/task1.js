@@ -17,3 +17,9 @@ console.log('Function expression.Rectangle Area:', rectangleAreaExpr(5, 10));
 
 const rectangleAreaArr = (width, height) => width * height;
 console.log('Arrow function.Rectangle Area:', rectangleAreaArr(5, 10));
+
+
+function foo() {
+  const x = 42; // <- unused var
+}
+foo();
